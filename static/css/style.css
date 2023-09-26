@@ -1,0 +1,126 @@
+.ob-gradient-cut-plate {
+    width: calc(100% - 2rem);
+    height: calc(92% - 1.5rem);
+    margin: 0 1rem;
+    bottom: 1rem;
+    top: unset;
+}
+
+.header-logo {
+    gap: 1rem;
+}
+
+.Aurora-Dia--tips {
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 1024px) {
+    .header-logo {
+        margin-left: .5rem;
+    }
+}
+
+.header-logo span {
+    margin-right: 0;
+}
+
+img {
+    display: inline-block;
+}
+
+#search-input::-webkit-search-cancel-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.post-html h1:after,
+.post-html h2:after,
+.post-html h3:after,
+.post-html h4:after,
+.post-html h5:after,
+.post-html h6:after {
+    height: 1px;
+    width: 100%;
+    opacity: .5;
+}
+
+.post-html .custom-quote::after,
+.post-html blockquote::after,
+.post-html .custom-quote::before,
+.post-html blockquote::before {
+    display: none;
+}
+
+.post-html .custom-quote-svg,
+.post-html .custom-blockquote-svg {
+    display: none;
+}
+
+.post-html a:has(img) {
+    all: unset;
+    display: block;
+    width: fit-content;
+}
+
+
+.shadow-lg .shadow-md {
+    border-radius: 13px;
+}
+
+.left-control .ob-dropdown .shadow-md {
+    border-radius: 13px;
+    padding: 0;
+}
+
+.shadow-md>div {
+    margin: .5rem;
+    border-radius: inherit;
+}
+
+#App-Mobile-Profile {
+    border-radius: 1rem 0 0 1rem;
+    max-width: 368px;
+}
+
+
+html {
+    color-scheme: dark;
+    overflow: unset;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 20px;
+    display: none;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    border: 9.5px solid transparent;
+    background: transparent;
+    box-shadow: inset 0 0 10px 10px #fff;
+}
+
+html:has(.theme-light) {
+    color-scheme: light;
+}
+
+html:has(.theme-light)::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 10px 10px #000;
+}
+
+.theme-light::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 10px 10px #000;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: #1A1A1A;
+    border-radius: 10px;
+    opacity: .5;
+}
+
+.theme-light::-webkit-scrollbar-track {
+    background: #F1F3F9;
+    opacity: .5;
+}
