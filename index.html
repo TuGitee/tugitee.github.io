@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人陈述</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            -webkit-user-drag: none;
+        }
+
+        .carousel {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .carousel-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 50px;
+            z-index: 9999;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background-color: #fff;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+            filter: drop-shadow(0 0 5px #8bdeff);
+        }
+
+        .indicator.active {
+            background-color: #0066ff;
+            width: 30px;
+        }
+
+        .carousel-item {
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-item.active {
+            z-index: 1 !important;
+            opacity: 1;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            font-size: 50px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+            filter: drop-shadow(0 0 5px #b7e2ff);
+        }
+
+        .prev.disabled,
+        .next.disabled {
+            opacity: 0;
+        }
+
+        .prev {
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .next {
+            right: 10px;
+            transform: translateX(50%) translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <div class="prev"><svg t="1720446016373" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="5067" width="2rem" height="2rem">
+                <path
+                    d="M452.374515 11.767909 19.109121 449.094941c-0.646986 0.646986-0.862649 1.509636-1.401804 2.156622-0.107831 0.107831-0.431325 0.215662-0.539156 0.323493-15.419849 15.527679-15.312018 40.652328 0.215662 56.072177l437.255145 433.265394c15.527679 15.419849 40.544497 15.312018 55.964345-0.215662 7.584121-7.691953 11.430098-17.86402 11.430098-27.928257 0-10.172068-3.953807-20.416023-11.753591-28.14392L100.952933 478.964158l407.60159-411.447566c7.584121-7.691953 11.430098-17.756189 11.430098-27.928257 0-10.279899-3.953807-20.416023-11.753591-28.14392C492.919012-3.975433 467.794364-3.759771 452.374515 11.767909L452.374515 11.767909z"
+                    fill="#0066ff" p-id="5068"></path>
+            </svg></div>
+        <div class="next"><svg t="1720446040548" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="1224" width="2rem" height="2rem">
+                <path
+                    d="M75.183935 940.651932l433.270714-437.368347c0.646995-0.646995 0.862659-1.509654 1.401822-2.156649 0.107832-0.107832 0.43133-0.215665 0.539163-0.323497 15.420038-15.52787 15.312206-40.652828-0.215665-56.072865L72.919453 11.495804c-15.52787-15.420038-40.544994-15.312206-55.965032 0.215665-7.584215 7.692047-11.430237 17.86424-11.430237 27.9286 0 10.172193 3.953856 20.416274 11.753735 28.144265L426.717665 473.449945 18.895405 884.902564c-7.584215 7.692047-11.430237 17.756407-11.430237 27.9286 0 10.280025 3.953856 20.416274 11.753735 28.144265C34.602997 956.359522 59.763897 956.143858 75.183935 940.651932L75.183935 940.651932z"
+                    fill="#0066ff" p-id="1225"></path>
+            </svg></div>
+        <div class="carousel-indicators"></div>
+        <div class="carousel-inner"></div>
+    </div>
+    <script>
+        const urlList = [
+            'https://img.picui.cn/free/2024/07/08/668bb9b056ee6.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bb9b06419b.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bb9b021253.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bb9b07072d.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bb9b02501d.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba2038852.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba201a231.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba200275d.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba1f51111.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba1b1d2e5.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba3d8d882.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba3d7652c.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba3e6d7f7.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba3e1d2d8.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba3e874df.jpg',
+            'https://img.picui.cn/free/2024/07/08/668bba632ffca.jpg'
+        ]
+
+        const carousel = document.querySelector('.carousel-inner');
+        let index = 0;
+        const html = urlList.map((url, index) => `<div class="carousel-item" style="z-index: -${index};"><img src="${url}" alt=""></div>`).join('')
+        carousel.innerHTML = html;
+
+        const indicators = document.querySelector('.carousel-indicators');
+        const indicatorHtml = urlList.map((url, index) => `<div class="indicator ${index === 0 ? 'active' : ''}" data-index="${index}"></div>`).join('')
+        indicators.innerHTML = indicatorHtml;
+
+        indicators.addEventListener('click', (e) => {
+            const target = e.target;
+            console.log(target);
+            if (target.classList.contains('indicator')) {
+                changeIndex(+target.dataset.index);
+            }
+        })
+
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+
+        changeIndex(0);
+
+        function changeIndex(i) {
+            if (i < 0) return;
+            if (i >= carousel.children.length) return;
+            index = i;
+            document.querySelector('.carousel-item.active')?.classList.remove('active');
+            document.querySelector('.indicator.active')?.classList.remove('active');
+            carousel.children[index].classList.add('active');
+            indicators.children[index].classList.add('active');
+
+            if (index === 0) {
+                prev.classList.add('disabled');
+            } else {
+                prev.classList.remove('disabled');
+            }
+
+            if (index === carousel.children.length - 1) {
+                next.classList.add('disabled');
+            } else {
+                next.classList.remove('disabled');
+            }
+        }
+
+        prev.addEventListener('click', () => {
+            changeIndex(index - 1);
+        })
+        next.addEventListener('click', () => {
+            changeIndex(index + 1);
+        })
+
+        carousel.addEventListener('click', (e) => {
+            const target = e.target;
+            e.preventDefault();
+            changeIndex(index + 1);
+        })
+
+        carousel.addEventListener('touchstart', (e) => {
+            const startX = e.touches[0].clientX;
+            e.preventDefault();
+            function touchEnd(e) {
+                const endX = e.changedTouches[0].clientX;
+                if (endX - startX > 50) {
+                    changeIndex(index - 1);
+                } else if (endX - startX < -50) {
+                    changeIndex(index + 1);
+                }
+                carousel.removeEventListener('touchend', touchEnd);
+            }
+            carousel.addEventListener('touchend', touchEnd);
+        })
+    </script>
+</body>
+
+</html>
